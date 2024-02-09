@@ -2,7 +2,14 @@
 let positions;
 let text;
 
+//ELEMENTS BASIC CREATION
 let root = document.getElementById("root");
+
+let import_file = document.createElement("input");
+import_file.id = "import_file";
+import_file.type = "file";
+import_file.accept = "text/txt";
+root.appendChild(import_file);
 
 let import_text = document.createElement("pre");
 import_text.id = "import_text";
@@ -14,6 +21,7 @@ export_text.id = "export_text";
 
 let export_file = document.createElement("a");
 export_file.innerHTML = "polohopis.asc";
+//ELEMENTS BASIC CREATION   -END
 
 document.getElementById("import_file").onchange = function(){
     const file = this.files[0];
@@ -30,9 +38,16 @@ document.getElementById("import_file").onchange = function(){
 
 //VSECHNY FUNKCIONALITY SE SPOUSTI AZ PO NACTENI VSUPNIHO SOUBORU
 function FileLoaded(){  
-    export_text.innerHTML = text_format(text);
-    import_text.innerHTML = text;
-    CreateExportFile(export_text.innerHTML); //volani funkce vytvarejici soubor ke stazeni
+    let X = text_format(text);
+    //IF CONVERSION IS VALID
+    if (typeof(X) === "string"){
+        export_text.innerHTML = X;
+        import_text.innerHTML = text;
+        CreateExportFile(export_text.innerHTML); //volani funkce vytvarejici soubor ke stazeni
+    } else{
+        alert("chyba naformatovani vstupniho textu");
+    }
+
     root.appendChild(export_file);
     root.appendChild(import_text);
     root.appendChild(export_text);

@@ -2,8 +2,6 @@
 let lines_wordly;
 
 function text_format(input){
-    let output = "";
-
     const lines = input.split("\n");
     lines_wordly = lines.map(function(line){ //[ [ 1],[222],[333] ],[ [ 2],[222],...]
         let words = line.split(" ");
@@ -18,8 +16,20 @@ function text_format(input){
 
     //LINES_WORDLY JE HOTOVE
     Negace_os();
-    Positions();
 
+    //ZKONTROLUJ FORMAT, POKUD JE CHYBA, VRAT OBJEKT S VYSLEDKY KONTROLY FORMATU
+    let formatChecked = FormatCheck(input);
+    if (!formatChecked.bool()){
+        return (formatChecked);
+    };
+
+    Positions();
+    return to_string();
+}
+
+function to_string(){
+    let output = "";
+    
     //PADDING OF FIRST INDEX
     let padding = Max_pad(lines_wordly);
     output = lines_wordly.map(function(line){
