@@ -14,7 +14,7 @@ root.appendChild(import_file);
 
 let import_text = document.createElement("pre");
 //import_text.id = "import_text";
-import_text.style = "display: none";
+//import_text.style = "display: none";
 
 let export_text = document.createElement("pre");
 //export_text.id = "export_text";
@@ -46,12 +46,6 @@ import_file.ondragover = function(event){
 };
 
 //RICH ELEMENTS CREATION
-function CreateElement(DOM_name, id = false, inner = false){
-    let element = document.createElement(DOM_name);
-    if(id) element.id = id;
-    if(inner) element.innerHTML = inner;
-    return element;
-}
 function ToogleVisibility(ele){
     ele.nextElementSibling.classList.toggle("hide");
 }
@@ -103,6 +97,8 @@ let import_file_BLOCK = CreateElement("div", "import_file_BLOCK");
 let import_text_BLOCK = CreateElement("div", "import_text_BLOCK");
 let export_text_BLOCK = CreateElement("div", "export_text_BLOCK");
 
+import_file_BLOCK.classList.add("fileNotLoaded");
+
 import_file_BLOCK.appendChild(import_file);
 import_file_BLOCK.appendChild(again_button);
 
@@ -110,10 +106,12 @@ import_text_BLOCK.appendChild(CreateElement("h2", false, "VSTUPNI TEXT"));
 {
     let b = CreateElement("button");
     b.onclick = function(){
-        this.nextElementSibling.classList.toggle("hide");
+        this.parentNode.classList.toggle("show-text");
+        this.parentNode.classList.toggle("hide-text");
     }
     b.innerHTML = "⬇︎";
     import_text_BLOCK.appendChild(b);
+    b.parentNode.classList.add("hide-text");
 }
 import_text_BLOCK.appendChild(import_text);
 
@@ -121,24 +119,30 @@ export_text_BLOCK.appendChild(CreateElement("h2", false, "UPRAVENY  TEXT"));
 {
     let b = CreateElement("button");
     b.onclick = function(){
-        this.nextElementSibling.classList.toggle("hide");
+        this.parentNode.classList.toggle("show-text");
+        this.parentNode.classList.toggle("hide-text");
     }
     b.innerHTML = "⬇︎";
     export_text_BLOCK.appendChild(b);
+    b.parentNode.classList.add("show-text");
 }
 export_text_BLOCK.appendChild(export_text);
 //RICH ELEMENTS CREATION   -END
 
 //VSECHNY FUNKCIONALITY SE SPOUSTI AZ PO NACTENI VSUPNIHO SOUBORU
 function FileLoaded(){  
-    document.getElementById("import_file_BLOCK").classList.toggle("fileLoaded");
+    document.getElementById("import_file_BLOCK").classList.replace("fileNotLoaded", "fileLoaded");
     let X = text_format(text);
+    import_text.innerHTML = text;
     //IF CONVERSION IS VALID / INVALID
     if (typeof(X) === "string"){
         export_text.innerHTML = X;
-        import_text.innerHTML = text;
         FormatStatus();
         CreateExportFile(export_text.innerHTML); //volani funkce vytvarejici soubor ke stazeni
+        //root.appendChild(GEOTable(positions)); //POZDEJI UPRAVIT
+        root.removeChild(help_BLOCK);
+        help_BLOCK.appendChild(GEOTable(positions));
+        root.appendChild(help_BLOCK);
     } else{
         FormatStatus(X);
         //alert("chyba naformatovani vstupniho textu");
@@ -148,8 +152,12 @@ function FileLoaded(){
     root.appendChild(format_status_BLOCK);
 }
 root.appendChild(import_file_BLOCK);
-root.appendChild(import_text_BLOCK);
-root.appendChild(export_text_BLOCK);
+let texts_BLOCK = CreateElement("div", "texts_BLOCK");
+texts_BLOCK.appendChild(import_text_BLOCK);
+texts_BLOCK.appendChild(export_text_BLOCK);
+root.appendChild(texts_BLOCK);
+root.appendChild(help_btn);
+root.appendChild(help_BLOCK);
 
 
 function CreateExportFile(text){

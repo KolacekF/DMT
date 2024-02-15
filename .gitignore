@@ -1,2 +1,4 @@
 #ignore .txt files with "-skutecny"
 *-skutecny.txt
+#ignore .DS_Store
+.DS_Store

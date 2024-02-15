@@ -1,0 +1,120 @@
+#root{
+    text-align: center;
+    position: relative;
+}
+#texts_BLOCK{
+    display: flex;
+    justify-content: center;
+}
+.show-text{
+    flex-grow: 1;
+}
+.hide-text{
+    flex-grow: 0.2;
+}
+.hide-text pre{
+    height: 0;
+    overflow-y: hidden;
+}
+.hide-text button{
+    transform: rotate(180deg);
+}
+/*PREDAT PAK DO FORMATU.css*/
+#texts_BLOCK button{
+    transition: all 1s;
+}
+
+
+.fileNotLoaded input{
+
+}
+.fileNotLoaded button{
+    display: none;
+}
+.fileLoaded input{
+    display: none;
+}
+.fileLoaded button{
+    display: inline-block;
+}
+
+#format_status_BLOCK section div{
+    height: 1em;
+    width: 1em;
+    border-radius: 1em;
+}
+#format_status_BLOCK .true div{
+    background-color: green;
+}
+#format_status_BLOCK .false div{
+    background-color: red;
+}
+#format_status_BLOCK .null div{
+    background-color: grey;
+}
+
+#format_status_BLOCK{
+    /*display: grid;
+    grid-template-rows: 1fr 1fr 1fr;*/
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#format_status_BLOCK section{
+    /*display: grid;
+    grid-template-columns: 1fr 1fr 1fr;*/
+    display: flex;
+    place-items: center;
+}
+
+#format_status_BLOCK section div{
+}
+#format_status_BLOCK section p{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+#format_status_BLOCK section b{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+#format_status_BLOCK:hover section div{
+}
+#format_status_BLOCK:hover section p{
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+}
+#format_status_BLOCK:hover section b{
+    width: fit-content;
+    height: fit-content;
+    overflow: hidden;
+}
+
+#help_btn{
+    position: absolute;
+    top: 0;
+    right: 3em;
+    z-index: 100;
+}
+#help_BLOCK{
+    position: absolute;
+    top: 0;
+}
+.hide-help{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+.show-help{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.41);
+}
+.show-help *{
+    background-color: grey;
+    width: fit-content;
+}

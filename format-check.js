@@ -25,7 +25,6 @@ function FormatCheck(input){
     //JE NA KAZDEM RADKU MINIMALNE 5 SLOUPCU?
 
     console.log(format_check);
-    console.log(format_check.bool());
 
     return format_check;
 }
