@@ -7,10 +7,14 @@ let root = document.getElementById("root");
 root.id = "root";
 
 let import_file = document.createElement("input");
-//import_file.id = "import_file";
+import_file.id = "import_file";
 import_file.type = "file";
 import_file.accept = "text/txt";
-root.appendChild(import_file);
+let import_label = CreateElement("label", "import_label", "<span>Přetáhněte soubor</span>");
+import_label.htmlFor = "import_file";
+import_label.appendChild(import_file)
+//root.appendChild(import_file);
+//root.appendChild(import_label);
 
 let import_text = document.createElement("pre");
 //import_text.id = "import_text";
@@ -99,7 +103,8 @@ let export_text_BLOCK = CreateElement("div", "export_text_BLOCK");
 
 import_file_BLOCK.classList.add("fileNotLoaded");
 
-import_file_BLOCK.appendChild(import_file);
+//import_file_BLOCK.appendChild(import_file);
+import_file_BLOCK.appendChild(import_label);
 import_file_BLOCK.appendChild(again_button);
 
 import_text_BLOCK.appendChild(CreateElement("h2", false, "VSTUPNI TEXT"));

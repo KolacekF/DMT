@@ -1,0 +1,221 @@
+a{
+    display: none;
+}
+body{
+    font-family: SimplonNorm,sans-serif;
+    margin: 0;
+}
+#root{
+    border-radius: 30px;
+    background-color: rgb(207, 205, 205);
+}
+
+#texts_BLOCK{
+    margin: 0 10% 0 10%;
+    border-top: 1px solid #000;
+}
+#import_text_BLOCK{
+    border-right: 1px solid #000;
+}
+#texts_BLOCK pre{
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    margin: 2em;
+    padding-left: 4em;
+    text-align: left;
+    background-color: white;
+
+    transition: inherit;
+}
+#texts_BLOCK button{
+    font-size: 1em;
+    width: 3em;
+    height: 3em;
+    border-radius: 4em;
+    border-style: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.hide-text pre{
+    border: none;
+    height: 0;
+}
+.show-text pre{
+    min-height: 1em;
+    border: groove;
+    border-radius: 10px;
+    border-width: thick;
+}
+
+#import_text_BLOCK, #export_text_BLOCK{
+    transition: all 0.5s;
+}
+
+.fileNotLoaded label{
+    justify-content: space-around;
+    align-items: center;
+    border: 2px dashed #000;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 30px;
+    width: 40%;
+    min-width: 9.5em;
+    height: 8em;
+}
+.fileNotLoaded input{
+    border: solid 1px #000;
+    border-radius: 15px;
+    padding: 5px;
+    width: 80%;
+    color: #3b3b3b;
+}
+.fileNotLoaded input::file-selector-button{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    color: white;
+    background-color: #000;
+}
+.fileLoaded button{
+    font-size: 1em;
+    padding: 1em;
+    margin: 20px;
+    border-radius: 4em;
+    border-style: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+#format_status_BLOCK{
+    gap: 0.5em;
+    transition: all 500ms;
+}
+#format_status_BLOCK:hover{
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 2em;
+    z-index: 101;
+}
+#format_status_BLOCK section{
+    max-width: 16px;
+    transition: all 500ms;
+}
+#format_status_BLOCK:hover section{
+    max-width: 500px;
+    gap: 2em;
+}
+#format_status_BLOCK p{
+    margin: 0;
+    white-space: nowrap;
+}
+
+#help_btn{
+    font-size: 1em;
+    width: 3em;
+    height: 3em;
+    border-radius: 4em;
+    border-style: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 500ms;
+}
+#help_btn:hover{
+    transform: scale(1.2);
+}
+#help_btn::before{
+    content: "?";
+    position: absolute;
+    top: 1em;
+    transition: all 1s;
+}
+#help_btn::after{
+    content: "X";
+    position: relative;
+    top: 4em;
+    transition: all 1s;
+}
+#help_btn.show-help::before{
+    top: 4em;
+}
+#help_btn.show-help::after{
+    top: 0em;
+    font-weight: bold;
+    color: red;
+}
+
+#help_BLOCK{
+    left: 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    z-index: 20;
+    overflow: scroll;
+    transition: all 250ms;
+}
+/*.show-help *{
+    background-color: white;
+}*/
+.show-help h1,.show-help h1,.show-help ul{
+    /*display: inline-block;*/
+}
+#tabulka_BLOCK{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#tabulka_BLOCK table{
+    width: 550px;
+    border-collapse: collapse;
+}
+#tabulka_BLOCK table, #tabulka_BLOCK td, #tabulka_BLOCK th{
+    border: 2px solid;
+}
+#tabulka_BLOCK table span, #tabulka_BLOCK table button{
+    display: inline-block;
+    margin: 0.5em;
+    width: 6em;
+}
+#tabulka_BLOCK table .table-in span{
+    border: 1px solid #000;
+}
+#tabulka_BLOCK table .table-m span{
+    background-image: linear-gradient(180deg, white, rgb(177, 177, 177));
+    border: 1px solid rgb(177, 177, 177);
+    border-radius: 5px;
+}
+#tabulka_BLOCK table .table---::before{
+    content: "--------";
+}
+
+#help_BLOCK > *{
+    background-color: white;
+    outline: 30px solid white;
+    border-radius: 10px;
+    padding: 0.5em;
+}
+#help_BLOCK table{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+#help_BLOCK > h1{
+    white-space: nowrap;
+}
+
+#footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+    background-color: #000;
+    backdrop-filter: invert(1);
+    mix-blend-mode: difference;
+    z-index: 120;
+}

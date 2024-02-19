@@ -25,13 +25,14 @@
 }
 
 
-.fileNotLoaded input{
-
+.fileNotLoaded label{
+    display: inline-flex;
+    flex-flow: column;
 }
 .fileNotLoaded button{
     display: none;
 }
-.fileLoaded input{
+.fileLoaded label{
     display: none;
 }
 .fileLoaded button{
@@ -59,14 +60,15 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 1em;
+    right: 1em;
 }
 #format_status_BLOCK section{
     /*display: grid;
     grid-template-columns: 1fr 1fr 1fr;*/
-    display: flex;
-    place-items: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #format_status_BLOCK section div{
@@ -96,8 +98,8 @@
 
 #help_btn{
     position: absolute;
-    top: 0;
-    right: 3em;
+    top: 1em;
+    right: 5em;
     z-index: 100;
 }
 #help_BLOCK{
@@ -112,9 +114,8 @@
 .show-help{
     width: 100vw;
     height: 100vh;
-    background-color: rgba(128, 128, 128, 0.41);
+    background-color: rgba(0, 0, 0, 0.8);
 }
-.show-help *{
+/*.show-help *{
     background-color: grey;
-    width: fit-content;
-}
+}*/
