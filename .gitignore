@@ -1,4 +1,8 @@
 #ignore .txt files with "-skutecny"
 *-skutecny.txt
+
 #ignore .DS_Store
 .DS_Store
+
+#ignore final HTML
+Otevri_Mne_V_Internetovem_Prohlizeci
