@@ -116,7 +116,7 @@ import_text_BLOCK.appendChild(CreateElement("h2", false, "VSTUPNI TEXT"));
     }
     b.innerHTML = "⬇︎";
     import_text_BLOCK.appendChild(b);
-    b.parentNode.classList.add("show-text");
+    b.parentNode.classList.add("hide-text");
 }
 import_text_BLOCK.appendChild(import_text);
 
@@ -129,7 +129,7 @@ export_text_BLOCK.appendChild(CreateElement("h2", false, "UPRAVENY  TEXT"));
     }
     b.innerHTML = "⬇︎";
     export_text_BLOCK.appendChild(b);
-    b.parentNode.classList.add("hide-text");
+    b.parentNode.classList.add("show-text");
 }
 export_text_BLOCK.appendChild(export_text);
 //RICH ELEMENTS CREATION   -END

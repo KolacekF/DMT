@@ -57,7 +57,7 @@ function VelikostSloupcu(){
     lines_wordly.map(function(l){
         x.push(l[1]);
         y.push(l[2]);
-        z.push(l[3]);
+        z.push((l[3]).replace("\r", "")); //replace "\r" - to not throw error when new line is after z cord. e.g. KOD is missing
     });
 
     x.map(function(cord){

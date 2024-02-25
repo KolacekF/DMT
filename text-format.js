@@ -15,7 +15,7 @@ function text_format(input){
     });
 
     //LINES_WORDLY JE HOTOVE
-    Negace_os();
+
 
     //ZKONTROLUJ FORMAT, POKUD JE CHYBA, VRAT OBJEKT S VYSLEDKY KONTROLY FORMATU
     let formatChecked = FormatCheck(input);
@@ -23,6 +23,7 @@ function text_format(input){
         return (formatChecked);
     };
 
+    Negace_os();
     Positions();
     return to_string();
 }
