@@ -1,3 +1,5 @@
+import datetime
+
 def FileRead(name):
     print("opening file   -   " + name)
     f = open(name, "r")
@@ -6,7 +8,11 @@ def FileRead(name):
     return content
 def FileWrite(str):
     f = open("Otevri_Mne_V_Internetovem_Prohlizeci.html", "w")
-    f.write(str)
+    comment = """
+    <!--Created automatically by parse.py script-->
+    <!--Timestamp of document creation: {date}-->
+    """.format(date=datetime.datetime.now().strftime("%d-%m-%Y %H:%M"))
+    f.write(str + comment)
     f.close()
     print("___________________")
     print("HTML succesfully created")
@@ -19,7 +25,7 @@ def Script(poz, sub):
     }
     file = sub[sub.index("src"):].split('"', 2)[1]
     inner = sub.index("</script>")
-    end = inner + 9
+    end = inner + 10
 
     obj["poz"] = poz + end
     obj["out"] += "<script>"
@@ -36,7 +42,7 @@ def Style(poz, sub):
         "out": ""
     }
     file = sub[sub.index("href"):].split('"', 2)[1]
-    end = sub.index(">") + 1
+    end = sub.index(">") + 2
     obj["poz"] = poz + end
     obj["out"] += "<style>"
     obj["out"] += FileRead(file)
