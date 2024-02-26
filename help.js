@@ -2,6 +2,7 @@ let help_btn = CreateElement("button", "help_btn");
 help_btn.onclick = function(){
     document.getElementById("help_BLOCK").classList.toggle("show-help");
     document.getElementById("help_BLOCK").classList.toggle("hide-help");
+    document.getElementById("root").classList.toggle("show-help");
     this.classList.toggle("show-help");
     this.classList.toggle("hide-help");
     /*if(this.innerHTML == "?"){
@@ -56,6 +57,7 @@ function GEOTable(pos){
     let celek = CreateElement("div", "tabulka_BLOCK");
     celek.appendChild(nadpis);
     celek.appendChild(CreateElement("table", false, table));
+    celek.appendChild(CodesTable(return_codes)); //FUNCTION OF codes.js
     //help_BLOCK.appendChild(celek);
     return celek;
 }

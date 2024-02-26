@@ -25,6 +25,8 @@ function text_format(input){
 
     Negace_os();
     Positions();
+    Create_codes(); //Create unique code names for KOD
+    Put_codes_in_linesWordly(Return_codes()); //IN lines_wordly REPLACE CODE NAMES WITH NUMBERS (= array indexes)
     return to_string();
 }
 

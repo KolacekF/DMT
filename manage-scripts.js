@@ -60,7 +60,7 @@ format_viceRadku.appendChild(CreateElement("div"));
 format_viceRadku.appendChild(CreateElement("p", false, "Dokument ma >3 radky "));
 let format_osamoceneRadky = CreateElement("section", "format_osamoceneRadky");
 format_osamoceneRadky.appendChild(CreateElement("div"));
-format_osamoceneRadky.appendChild(CreateElement("p", false, "Dokument ma prazdne radky "));
+format_osamoceneRadky.appendChild(CreateElement("p", false, "Dokument nema prazdne radky "));
 let format_velikostSloupcu = CreateElement("section", "format_velikostSloupcu");
 format_velikostSloupcu.appendChild(CreateElement("div"));
 format_velikostSloupcu.appendChild(CreateElement("p", false, "Dokument ma vsechny sloupce stejne "));
