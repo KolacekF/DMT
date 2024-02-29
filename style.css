@@ -59,23 +59,25 @@ body{
     transition: all 0.5s;
 }
 
-.fileNotLoaded label{
+.fileNotLoaded #drop_BLOCK label{
     justify-content: space-around;
     align-items: center;
+    margin: 30px;
+    height: 8em;
+    transition: all 250ms;
+}
+.fileNotLoaded #drop_BLOCK label, #options_form{
     border: 2px dashed #000;
     border-radius: 15px;
     padding: 20px;
-    margin: 30px;
     width: 40%;
     min-width: 9.5em;
-    height: 8em;
-    transition: all 250ms;
 }
 #import_label:hover{
     background-color: rgb(231, 228, 228);
     cursor: pointer;
 }
-.fileNotLoaded input{
+.fileNotLoaded #drop_BLOCK input{
     border: solid 1px #000;
     border-radius: 15px;
     padding: 5px;
@@ -83,7 +85,7 @@ body{
     cursor: pointer;
     color: #3b3b3b;
 }
-.fileNotLoaded input::file-selector-button{
+.fileNotLoaded #drop_BLOCK input::file-selector-button{
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
@@ -92,8 +94,8 @@ body{
     color: white;
     background-color: #000;
 }
-.fileLoaded button{
-    font-size: 1em;
+.fileLoaded button, #options_form div:last-child input{
+    /*font-size: 1em;*/
     padding: 1em;
     margin: 20px;
     border-radius: 4em;
@@ -118,6 +120,36 @@ body{
 }
 .fileLoaded button:hover:before{
     left: 0;
+}
+
+#options_form{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#options_form div:last-child{
+    align-self: flex-end;
+}
+#options_form div:last-child input{
+    background-color: green;
+}
+#options_form div{
+    display: inline-flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+.fileNotLoaded #confirm_BLOCK{
+    top: -30px;
+    max-height: 0px;
+}
+.file_put #confirm_BLOCK{
+    top: -25px;
+    max-height: 500px;
+}
+#confirm_BLOCK{
+    position: relative;
+    overflow: hidden;
+    transition: all 1s;
 }
 
 #format_status_BLOCK{

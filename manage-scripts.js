@@ -13,6 +13,8 @@ import_file.accept = "text/txt";
 let import_label = CreateElement("label", "import_label", "<span>Přetáhněte soubor</span>");
 import_label.htmlFor = "import_file";
 import_label.appendChild(import_file)
+let drop_BLOCK = CreateElement("div", "drop_BLOCK");
+drop_BLOCK.appendChild(import_label);
 //root.appendChild(import_file);
 //root.appendChild(import_label);
 
@@ -29,16 +31,21 @@ export_file.innerHTML = "polohopis.asc";
 //BASIC ELEMENTS CREATION   -END
 
 import_file.onchange = function(){
-    const file = this.files[0];
-    const reader = new FileReader();
+    document.getElementById("import_file_BLOCK").classList.add("file_put");
 
+    //const file = this.files[0];
+    const file = document.getElementById("import_file").files[0];
+    const reader = new FileReader();
     reader.onload = function(event) {
         const contents = event.target.result;
         text = contents;
-        FileLoaded();
+        
+        import_text.innerHTML = text;
     };
-
     reader.readAsText(file);
+
+    document.getElementById("import_text_BLOCK").classList.add("show-text");
+    document.getElementById("import_text_BLOCK").classList.remove("hide-text");
 };
 import_file.ondrop = function(event){
     DropHandler(event);
@@ -92,6 +99,31 @@ function FormatStatus(obj = "not_given"){
 } 
 //FORMAT STATUS END
 
+let confirm_BLOCK = CreateElement("div", "confirm_BLOCK");
+{
+    let form_inside = `
+    <div>
+      <label for="negace">NEGACE</label>
+      <input type="checkbox" id="negace" checked>
+    </div><div>
+      <label for="split">ODDĚLOVAČ</label>
+      <input type="text" id="split" value=" "></input>
+    </div><div>
+      <input type="submit" value="Převést na .asc">
+    </div>
+      `
+    let form = CreateElement("form", "options_form", form_inside);
+    form.onsubmit = function(e){
+        e.preventDefault();
+
+        FileLoaded(this.negace.checked, this.split.value);
+        document.getElementById("export_text_BLOCK").classList.add("show-text");
+
+        return false;
+    }
+    confirm_BLOCK.appendChild(form);
+}
+
 let again_button = CreateElement("button", false, "Nahrat dalsi soubor");
 again_button.onclick = function(){
     window.location.reload();
@@ -104,7 +136,8 @@ let export_text_BLOCK = CreateElement("div", "export_text_BLOCK");
 import_file_BLOCK.classList.add("fileNotLoaded");
 
 //import_file_BLOCK.appendChild(import_file);
-import_file_BLOCK.appendChild(import_label);
+import_file_BLOCK.appendChild(drop_BLOCK);
+import_file_BLOCK.appendChild(confirm_BLOCK);
 import_file_BLOCK.appendChild(again_button);
 
 import_text_BLOCK.appendChild(CreateElement("h2", false, "VSTUPNI TEXT"));
@@ -129,16 +162,15 @@ export_text_BLOCK.appendChild(CreateElement("h2", false, "UPRAVENY  TEXT"));
     }
     b.innerHTML = "⬇︎";
     export_text_BLOCK.appendChild(b);
-    b.parentNode.classList.add("show-text");
+    b.parentNode.classList.add("hide-text");
 }
 export_text_BLOCK.appendChild(export_text);
 //RICH ELEMENTS CREATION   -END
 
 //VSECHNY FUNKCIONALITY SE SPOUSTI AZ PO NACTENI VSUPNIHO SOUBORU
-function FileLoaded(){  
+function FileLoaded(neg, split){  
     document.getElementById("import_file_BLOCK").classList.replace("fileNotLoaded", "fileLoaded");
-    let X = text_format(text);
-    import_text.innerHTML = text;
+    let X = text_format(text, neg, split);
     //IF CONVERSION IS VALID / INVALID
     if (typeof(X) === "string"){
         export_text.innerHTML = X;

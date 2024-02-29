@@ -32,7 +32,7 @@
 .fileNotLoaded button{
     display: none;
 }
-.fileLoaded label{
+.fileLoaded label, .fileLoaded #confirm_BLOCK{
     display: none;
 }
 .fileLoaded button{

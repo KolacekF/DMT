@@ -1,10 +1,11 @@
 //take input text string -> format it -> return text string
 let lines_wordly;
 
-function text_format(input){
+function text_format(input, neg, split){
     const lines = input.split("\n");
     lines_wordly = lines.map(function(line){ //[ [ 1],[222],[333] ],[ [ 2],[222],...]
-        let words = line.split(" ");
+        //let words = line.split(" ");
+        let words = line.split(split);
         let return_words = [];
         for (const word of words) {
             if (word !== "" ){
@@ -23,7 +24,7 @@ function text_format(input){
         return (formatChecked);
     };
 
-    Negace_os();
+    if(neg) Negace_os();
     Positions();
     Create_codes(); //Create unique code names for KOD
     Put_codes_in_linesWordly(Return_codes()); //IN lines_wordly REPLACE CODE NAMES WITH NUMBERS (= array indexes)
