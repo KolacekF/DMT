@@ -12,7 +12,7 @@ function Return_codes(){
 function Create_codes(){
     for (const line of lines_wordly) {
         let x = (line.slice(4,)).toString();
-        codes[x] = null;
+        if(x != "") codes[x] = null; //prevents bug adding code number to all codes, because of empty ""
     }
 }
 

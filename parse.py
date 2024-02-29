@@ -7,6 +7,7 @@ def FileRead(name):
     f.close()
     return content
 def FileWrite(str):
+    print("writing export HTML")
     f = open("Otevri_Mne_V_Internetovem_Prohlizeci.html", "w")
     comment = """
     <!--Created automatically by parse.py script-->

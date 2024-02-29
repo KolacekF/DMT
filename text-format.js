@@ -82,7 +82,7 @@ function Positions(){
     let i = lines_wordly.length;
     let example_line = lines_wordly[i-2].map(function(e){return e;});
     const Pozice = {
-        ID: [0], //pocatecni, pred carkou, za carkou
+        ID: [1], //pocatecni, pred carkou, za carkou
         X: [], //pocatecni, pred carkou, za carkou
         Y: [], //pocatecni, pred carkou, za carkou
         Z: [], //pocatecni, pred carkou, za carkou
