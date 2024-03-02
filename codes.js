@@ -11,8 +11,8 @@ function Return_codes(){
 
 function Create_codes(){
     for (const line of lines_wordly) {
-        let x = (line.slice(4,)).toString();
-        if(x != "") codes[x] = null; //prevents bug adding code number to all codes, because of empty ""
+        let x = (line.slice(4,)).toString().trim();
+        if(x != "" && x != "\r") codes[x] = null; //prevents bug adding code number to all codes, because of empty ""
     }
 }
 
