@@ -2,7 +2,7 @@ import datetime
 
 def FileRead(name):
     print("opening file   -   " + name)
-    f = open(name, "r")
+    f = open(name, "r", encoding="utf-8")
     content = f.read()
     f.close()
     return content
