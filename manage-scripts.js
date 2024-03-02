@@ -42,7 +42,11 @@ import_file.onchange = function(){
         
         import_text.innerHTML = text;
     };
-    reader.readAsText(file);
+    try {
+        reader.readAsText(file);
+    } catch (error) {
+        alert(error);
+    }
 
     document.getElementById("import_text_BLOCK").classList.add("show-text");
     document.getElementById("import_text_BLOCK").classList.remove("hide-text");
@@ -170,7 +174,12 @@ export_text_BLOCK.appendChild(export_text);
 //VSECHNY FUNKCIONALITY SE SPOUSTI AZ PO NACTENI VSUPNIHO SOUBORU
 function FileLoaded(neg, split){  
     document.getElementById("import_file_BLOCK").classList.replace("fileNotLoaded", "fileLoaded");
-    let X = text_format(text, neg, split);
+    let X = "";
+    try {
+        X = text_format(text, neg, split);    
+    } catch (error) {
+        alert(error);
+    }
     //IF CONVERSION IS VALID / INVALID
     if (typeof(X) === "string"){
         export_text.innerHTML = X;
