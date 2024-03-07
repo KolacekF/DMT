@@ -2,6 +2,7 @@
 let lines_wordly;
 
 function text_format(input, neg, split){
+    if (input.slice(-1) == "\n") input = input.slice(0, -1); //if last is \n, pop() it
     const lines = input.split("\n");
     lines_wordly = lines.map(function(line){ //[ [ 1],[222],[333] ],[ [ 2],[222],...]
         //let words = line.split(" ");

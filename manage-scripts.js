@@ -31,26 +31,9 @@ export_file.innerHTML = "polohopis.asc";
 //BASIC ELEMENTS CREATION   -END
 
 import_file.onchange = function(){
-    document.getElementById("import_file_BLOCK").classList.add("file_put");
-
-    //const file = this.files[0];
-    const file = document.getElementById("import_file").files[0];
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        const contents = event.target.result;
-        text = contents;
-        
-        import_text.innerHTML = text;
-    };
-    try {
-        reader.readAsText(file);
-    } catch (error) {
-        alert(error);
-    }
-
-    document.getElementById("import_text_BLOCK").classList.add("show-text");
-    document.getElementById("import_text_BLOCK").classList.remove("hide-text");
+    FilePutHandler();
 };
+/*
 import_file.ondrop = function(event){
     DropHandler(event);
     this.classList.remove("highlight");
@@ -58,7 +41,7 @@ import_file.ondrop = function(event){
 import_file.ondragover = function(event){
     dragOverHandler(event);
     this.classList.add("highlight");
-};
+};*/
 
 //RICH ELEMENTS CREATION
 function ToogleVisibility(ele){
@@ -122,6 +105,7 @@ let confirm_BLOCK = CreateElement("div", "confirm_BLOCK");
 
         FileLoaded(this.negace.checked, this.split.value);
         document.getElementById("export_text_BLOCK").classList.add("show-text");
+        document.getElementById("export_text_BLOCK").classList.remove("hide-text");
 
         return false;
     }
@@ -138,6 +122,16 @@ let import_text_BLOCK = CreateElement("div", "import_text_BLOCK");
 let export_text_BLOCK = CreateElement("div", "export_text_BLOCK");
 
 import_file_BLOCK.classList.add("fileNotLoaded");
+
+//prevent opening droped file in new tab
+drop_BLOCK.ondragover = function(event){
+    dragOverHandler(event);
+}
+drop_BLOCK.ondrop = function(event){
+    event.preventDefault();
+    document.getElementById("import_file").files = event.dataTransfer.files;
+    FilePutHandler();
+}
 
 //import_file_BLOCK.appendChild(import_file);
 import_file_BLOCK.appendChild(drop_BLOCK);
@@ -231,4 +225,26 @@ function DropHandler(ev){
 function dragOverHandler(ev) {  
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
-  }
+}
+
+function FilePutHandler(){ //function triggered by input.onchange OR drop_BLOCK.ondrop
+    document.getElementById("import_file_BLOCK").classList.add("file_put");
+
+    //const file = this.files[0];
+    const file = document.getElementById("import_file").files[0];
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const contents = event.target.result;
+        text = contents;
+        
+        import_text.innerHTML = text;
+    };
+    try {
+        reader.readAsText(file);
+    } catch (error) {
+        alert(error);
+    }
+
+    document.getElementById("import_text_BLOCK").classList.add("show-text");
+    document.getElementById("import_text_BLOCK").classList.remove("hide-text");
+}
