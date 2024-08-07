@@ -198,6 +198,7 @@ texts_BLOCK.appendChild(export_text_BLOCK);
 root.appendChild(texts_BLOCK);
 root.appendChild(help_btn);
 root.appendChild(help_BLOCK);
+root.appendChild(need_help_BLOCK);
 
 
 function CreateExportFile(text){

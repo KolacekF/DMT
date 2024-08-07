@@ -39,7 +39,7 @@ function GEOTable(pos){
         <tr><td>X</td><td class="table-in">${span(pos.X[0])}</td><td class="table-in">${span(pos.X[1])}</td><td class="table-in">${span(pos.X[2])}</td><td class="table-m">${span("m")}</td></tr>
         <tr><td>Y</td><td class="table-in">${span(pos.Y[0])}</td><td class="table-in">${span(pos.Y[1])}</td><td class="table-in">${span(pos.Y[2])}</td><td class="table-m">${span("m")}</td></tr>
         <tr><td>Z</td><td class="table-in">${span(pos.Z[0])}</td><td class="table-in">${span(pos.Z[1])}</td><td class="table-in">${span(pos.Z[2])}</td><td class="table-m">${span("m")}</td></tr>
-        <tr><td>KÓD</td><td class="table-in">${span(pos.Kod[0])}</td><td class="table-in">${span("100")}</td><td class="table-in">${span("0")}</td><td class="table---"></td></tr>
+        <tr><td>KÓD</td><td class="table-in">${span(pos.Kod[0])}</td><td class="table-in">${span("10")}</td><td class="table-in">${span("0")}</td><td class="table---"></td></tr>
     </table>
     `;
     /*`

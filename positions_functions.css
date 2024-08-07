@@ -116,6 +116,48 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+#need_help_BLOCK{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    right: 5em;
+    top: 5em;
+}
+#need_help_btn{
+    width: fit-content;
+}
+#need_help_form button.button_wait{
+    background-color: grey;
+    pointer-events: none;
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#need_help_form button.button_success{
+    background-color: green;
+}
+#need_help_form button.button_fail{
+    background-color: red;
+}
+#need_help_form.hidden{
+    opacity: 0;
+}
+#need_help_input{
+    resize: vertical;
+}
+
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
 /*.show-help *{
     background-color: grey;
 }*/

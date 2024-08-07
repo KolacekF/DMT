@@ -177,10 +177,44 @@ body{
     white-space: nowrap;
 }
 
-#help_btn{
+#need_help_form{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 1;
+    transition: opacity 1s;
+    margin: 10px 0px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 15px;
+    background-color: rgb(207, 205, 205);
+}
+#need_help_input{
+    width: 300px;
+    height: 150px;
+    min-height: 3em;
+}
+#need_help_form button.button_wait{
+    background-color: grey;
+    pointer-events: none;
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+#need_help_form button.button_success{
+    background-color: green;
+}
+#need_help_form button.button_fail{
+    background-color: red;
+}
+
+#help_btn, #need_help_form button{
     font-size: 1em;
     width: 3em;
     height: 3em;
+}
+#help_btn, #need_help_btn, #need_help_form button{
     border-radius: 4em;
     border-style: none;
     background-color: black;
@@ -189,7 +223,10 @@ body{
     overflow: hidden;
     transition: all 500ms;
 }
-#help_btn:hover{
+#help_btn:hover, #need_help_btn:hover{
+    transform: scale(1.2);
+}
+#need_help_btn.submenu_visible{
     transform: scale(1.2);
 }
 #help_btn::before{
