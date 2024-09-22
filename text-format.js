@@ -90,7 +90,7 @@ function Positions(){
         Z: [], //pocatecni, pred carkou, za carkou
         Kod: [], //pocatecni, pred carkou, za carkou
         zjisti: function(){
-            this.ID[1] = example_line[0].length;
+            this.ID[1] = example_line[0].length + 1;
             this.X[0] = this.ID[1] + 4;
             this.X[1] = example_line[1].split(".")[0].length;
             this.X[2] = example_line[1].split(".")[1].length;
