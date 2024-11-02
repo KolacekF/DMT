@@ -19,10 +19,10 @@ To make working with this tool more accesible, it is possible to create ONE `.ht
 - in current direcory will be created new file `Otevri_Mne_V_Internetovem_Prohlizeci.html`. This file can be sent / saved anywhere you want (even offline).
 
 ## Workflow
-1. Open `Otevri_Mne_V_Internetovem_Prohlizeci.html` in your web browser (javascript must be enaled)
+1. Open `Otevri_Mne_V_Internetovem_Prohlizeci.html` in your web browser (javascript must be enabled)
 2. Import your `.txt` file
     - You can turn of axis negation, or choose your own column separator (default is 1 space " ")
 3. "traffic light" in upper right corner says if all tests for input data went OK, possibly what is wrong eith input data (on cursor hover will be shown more information)
 4. After succesfull import of data
-- `.asc` file will be automatically downloaded
-- in upper right corner in "?" button will now be visible, how to configure Allplan settings for import to go well (+ number codes for char codes in input `.txt` file)
+    - `.asc` file will be automatically downloaded
+    - in upper right corner in "?" button will now be visible, how to configure Allplan settings for import to go well (+ number codes for char codes in input `.txt` file)
