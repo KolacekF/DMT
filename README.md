@@ -26,3 +26,4 @@ To make working with this tool more accesible, it is possible to create ONE `.ht
 4. After succesfull import of data
     - `.asc` file will be automatically downloaded
     - in upper right corner in "?" button will now be visible, how to configure Allplan settings for import to go well (+ number codes for char codes in input `.txt` file)
+5. Import `asc.` file to Allplan
