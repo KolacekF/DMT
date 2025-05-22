@@ -13,7 +13,7 @@ When working with Allplan DMT you need `.asc` file. That can be created from giv
 - giving each point a number code value (if it has one)
 
 ## Parsing final file
-To make working with this tool more accesible, it is possible to create ONE `.html` file
+To make working with this tool more accesible, it is possible to create **ONE** `.html` file. (Python version must be at least 3.10)
 - download copy of all files into one folder
 - in command line run `python parse.py`
 - in current direcory will be created new file `Otevri_Mne_V_Internetovem_Prohlizeci.html`. This file can be sent / saved anywhere you want (even offline).
